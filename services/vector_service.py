@@ -15,3 +15,12 @@ class VectorService:
         return self.store.add(
             vectors
         )
+
+    def search_vectors(
+        self,
+        query
+    ):
+
+        return self.store.search(
+            query
+        )
