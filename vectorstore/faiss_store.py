@@ -25,3 +25,27 @@ class FAISSStore:
         self.index.add(vectors)
 
         return self.index.ntotal
+
+    def search(
+        self,
+        query,
+        k=3
+    ):
+
+        query = np.array(
+            [query],
+            dtype="float32"
+        )
+
+        distances, indices = self.index.search(
+            query,
+            k
+        )
+
+        return {
+
+            "indices": indices.tolist(),
+
+            "distances": distances.tolist()
+
+        }
